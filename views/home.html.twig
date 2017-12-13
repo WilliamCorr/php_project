@@ -1,0 +1,28 @@
+{% extends '_default.html.twig' %}
+
+{% block homeStyle %}currentPage{% endblock %}
+
+{% block main %}
+<h1>
+    Welcome to the home page
+</h1>
+
+<h1>welcome to the home page, we got fun and games</h1>
+
+
+    {% for user in users %}
+        * {{ user.name }}
+    {% else %}
+        No users have been found.
+    {% endfor %}
+
+
+    {% for description in products %}
+        * {{ product.id }}
+    {% else %}
+        No Products have been found.
+    {% endfor %}
+
+    {{ products }}
+
+{% endblock %}

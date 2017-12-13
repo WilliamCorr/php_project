@@ -1,0 +1,52 @@
+{% extends '_default.html.twig' %}
+
+{% block listStyle %}currentPage{% endblock %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list page</title>
+</head>
+<body>
+
+<h1>list page</h1>
+
+products
+<ul>
+
+
+    {% for product in products %}
+        * {{ product }}
+    {% else %}
+        No Products have been listed
+    {% endfor %}
+
+
+ <?php
+        foreach($products as $product) {
+            $id = $product->getId();
+    ?>
+
+            <li>
+                <?php
+                    print '/index.php?action=show&id=' . $id;
+                ?>
+                <hr>
+                <a href="/index.php?action=show&id=<?= $id ?>">
+                id = <?= $product->getId() ?>
+
+                <br>
+                description = <?= $product->getDescription() ?>
+                </a>
+            </li>
+
+    <?php
+        }
+    ?>
+</ul>
+
+</body>
+</html>{% endblock %}
